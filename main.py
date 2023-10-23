@@ -17,7 +17,9 @@ def run_stress_ng(name):
         for value in range(min_val, max_val, step):
             command_to_run = command['command'].format(value)
             proc = subprocess.Popen(command_to_run, stdout=subprocess.PIPE, shell=True, executable="/bin/bash")
-            print(proc.stdout.read().split('\n'))
+
+            print('command:', command_to_run)
+            print(proc.stdout.read())
         print('-----------------------------')
 
 
