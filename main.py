@@ -8,8 +8,8 @@ output = output.decode('utf-8')
 
 def run_stress_ng(name):
     for command in commands[name]:
-        min_val = command['range'][0]
-        max_val = command['range'][1] + 1
+        min_val = int(input('Enter min range value >>>'))
+        max_val = int(input('Enter max range value >>>'))
 
         max_steps = 10
         step = max(1, int((max_val - min_val) / max_steps))
