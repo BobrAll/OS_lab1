@@ -15,6 +15,10 @@ def test_cpu(time):
 
         proc = subprocess.Popen(command_to_run, stdout=subprocess.PIPE, shell=True, executable="/bin/bash")
         output = proc.stdout.read()
+        print(output)
 
-        for word in output.split(' '):
-            print(word)
+        for val in output.split(' '):
+            try:
+                return int(val)
+            except:
+                pass

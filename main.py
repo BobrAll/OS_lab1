@@ -14,5 +14,5 @@ if __name__ == '__main__':
             print('Incorrect command name')
         else:
             time = int(input('Enter time per test >>>'))
-            commands[command_name](time)
+            print('result:', commands[command_name](time))
 
