@@ -13,6 +13,6 @@ if __name__ == '__main__':
         if command_name not in commands.keys():
             print('Incorrect command name')
         else:
-            time = input('Enter time per test >>>')
+            time = int(input('Enter time per test >>>'))
             commands[command_name](time)
 
