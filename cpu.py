@@ -17,11 +17,12 @@ def test_cpu(time):
 
         proc = subprocess.Popen(command_to_run, stdout=subprocess.PIPE, shell=True, executable="/bin/bash")
         output = str(proc.stdout.read())
-        print(output)
+        #print(output)
 
         for val in output.split(' '):
             if val.isdigit():
                 result.append(val)
+                print('bogo ops:', val)
                 break
 
     return result
