@@ -2,7 +2,7 @@ import subprocess
 
 
 def test_cpu(time):
-    command = 'stress-ng --cpu {} --cpu-method int32float -t {} --metrics'
+    command = 'stress-ng --cpu {} --cpu-method int32float -t {} --metrics | head -5 | tail -1'
     min_val = int(input('Enter min range value >>>'))
     max_val = int(input('Enter max range value >>>')) + 1
 
@@ -14,4 +14,7 @@ def test_cpu(time):
         print('command:', command_to_run)
 
         proc = subprocess.Popen(command_to_run, stdout=subprocess.PIPE, shell=True, executable="/bin/bash")
-        print(proc.stdout.read())
+        output = proc.stdout.read()
+
+        for word in output.split(' '):
+            print(word)
