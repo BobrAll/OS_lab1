@@ -18,7 +18,7 @@ def test_cpu(time, min_val, max_val):
         for val in output.split(' '):
             if val.isdigit():
                 x.append(cpu_val)
-                y.append(val)
+                y.append(int(val))
                 break
 
     return x, y
