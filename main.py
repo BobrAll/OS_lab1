@@ -27,5 +27,5 @@ if __name__ == '__main__':
             plt.xlabel('cpu''s')
             plt.ylabel('bogo ops')
             plt.savefig('graph.png')
-            line.remove()
+            plt.clf()
 
