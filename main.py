@@ -22,7 +22,10 @@ if __name__ == '__main__':
 
             print(np.array(x))
             print(np.array(y))
-            plt.plot(np.array(x), np.array(y))
+
+            line = plt.plot(np.array(x), np.array(y))
             plt.xlabel('cpu''s')
             plt.ylabel('bogo ops')
             plt.savefig('graph.png')
+            line.remove()
+
