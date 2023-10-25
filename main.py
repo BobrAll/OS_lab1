@@ -16,7 +16,7 @@ if __name__ == '__main__':
         else:
             time = int(input('Enter time per test >>>'))
             min_val = int(input('Enter min range value >>>'))
-            max_val = int(input('Enter max range value >>>')) + 1
+            max_val = int(input('Enter max range value >>>')) - 1
 
             x, y = commands[command_name](time, min_val, max_val)
 
