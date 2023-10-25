@@ -1,5 +1,6 @@
 from cpu import test_cpu
-
+import numpy as np
+import matplotlib.pyplot as plt
 
 commands = {'cpu': test_cpu}
 
@@ -16,5 +17,7 @@ if __name__ == '__main__':
             time = int(input('Enter time per test >>>'))
             min_val = int(input('Enter min range value >>>'))
             max_val = int(input('Enter max range value >>>')) + 1
-            print('result:', commands[command_name](time, min_val, max_val))
 
+            x, y = commands[command_name](time, min_val, max_val)
+            plt.plot(np.array(x), np.array(y))
+            plt.savefig('graph.png')
