@@ -19,5 +19,9 @@ if __name__ == '__main__':
             max_val = int(input('Enter max range value >>>')) + 1
 
             x, y = commands[command_name](time, min_val, max_val)
+            print(x)
+            print(y)
+            print(np.array(x))
+            print(np.array(y))
             plt.plot(np.array(x), np.array(y))
             plt.savefig('graph.png')
