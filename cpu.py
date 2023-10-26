@@ -3,6 +3,7 @@ import subprocess
 
 def test_cpu(time, min_val, max_val):
     x, y = [], []
+    info = {'x_label': 'cpu\'s', 'y_label': 'bogo ops'}
     cpu_methods = ['int32float', 'rand']
     method = input('Enter needed cpu-method from list: {} >>>'.format(cpu_methods))
 
@@ -15,6 +16,9 @@ def test_cpu(time, min_val, max_val):
         command_to_run = command.format(cpu_val, method, time)
         print('command:', command_to_run)
 
+        info['title'] = command_to_run
+        info['parameter'] = method
+
         proc = subprocess.Popen(command_to_run, stdout=subprocess.PIPE, shell=True, executable="/bin/bash")
         output = str(proc.stdout.read())
 
@@ -24,4 +28,4 @@ def test_cpu(time, min_val, max_val):
                 y.append(int(val))
                 break
 
-    return x, y
+    return x, y, info

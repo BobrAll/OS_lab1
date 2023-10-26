@@ -18,14 +18,15 @@ if __name__ == '__main__':
             min_val = int(input('Enter min range value >>>'))
             max_val = int(input('Enter max range value >>>')) + 1
 
-            x, y = commands[command_name](time, min_val, max_val)
+            x, y, info = commands[command_name](time, min_val, max_val)
 
             print(np.array(x))
             print(np.array(y))
 
             line = plt.plot(np.array(x), np.array(y))
-            plt.xlabel('cpu''s')
-            plt.ylabel('bogo ops')
-            plt.savefig('graph.png')
+            plt.xlabel(info['x_label'])
+            plt.ylabel(info['y_label'])
+            plt.title(info['title'])
+            plt.savefig('{} {}s.png'.format(info['parameter'], time))
             plt.clf()
 
