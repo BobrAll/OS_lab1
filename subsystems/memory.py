@@ -16,7 +16,7 @@ def test_memory(time, min_val, max_val):
         command_to_run = command.format(method, method_val, time)
         print('command:', command_to_run)
 
-        info['title'] = command.format(method)
+        info['title'] = command
         info['parameter'] = method + ' value'
 
         subprocess.Popen(command_to_run, stdout=subprocess.PIPE, shell=True, executable="/bin/bash")
