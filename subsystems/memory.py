@@ -19,10 +19,11 @@ def test_memory(time, min_val, max_val):
         info['title'] = command_to_run
         info['parameter'] = method
 
-        subprocess.Popen(command_to_run, stdout=subprocess.PIPE, shell=True, executable="/bin/bash")
+        stress_ng = subprocess.Popen(command_to_run, stdout=subprocess.PIPE, shell=True, executable="/bin/bash")
         proc = subprocess.Popen('free -m | tail -2 | head -1', stdout=subprocess.PIPE, shell=True,
                                 executable="/bin/bash")
         output = str(proc.stdout.read())[:-3]
+        print(stress_ng.stdout.read())
 
         digit_counter = 0
         for val in output.split(' '):
