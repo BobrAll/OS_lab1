@@ -29,7 +29,7 @@ def test_memory(time, min_val, max_val):
             if val.isdigit():
                 print(val)
                 digit_counter += 1
-                if digit_counter == 6:
+                if digit_counter == 7:
                     x.append(method_val)
                     y.append(int(val))
                     break
