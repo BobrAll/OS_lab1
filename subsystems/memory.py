@@ -3,7 +3,7 @@ import subprocess
 
 def test_memory(time, min_val, max_val):
     x, y = [], []
-    info = {'x_label': 'memrate\'s', 'y_label': 'used mem (Mb)'}
+    info = {'x_label': 'memrate value', 'y_label': 'used mem (Mb)'}
     memory_methods = ['memrate']
     method = input('Enter needed memory method from list: {} >>>'.format(memory_methods))
 
@@ -17,7 +17,7 @@ def test_memory(time, min_val, max_val):
         print('command:', command_to_run)
 
         info['title'] = command_to_run
-        info['parameter'] = method + ' value'
+        info['parameter'] = method
 
         subprocess.Popen(command_to_run, stdout=subprocess.PIPE, shell=True, executable="/bin/bash")
         proc = subprocess.Popen('free -m | tail -2 | head -1', stdout=subprocess.PIPE, shell=True,
