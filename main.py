@@ -1,8 +1,10 @@
-from cpu import test_cpu
+from subsystems.cpu import test_cpu
+from subsystems.memory import test_memory
+
 import numpy as np
 import matplotlib.pyplot as plt
 
-commands = {'cpu': test_cpu}
+commands = {'cpu': test_cpu, 'memory': test_memory}
 
 if __name__ == '__main__':
     while True:
