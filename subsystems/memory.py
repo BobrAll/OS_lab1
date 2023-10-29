@@ -23,10 +23,12 @@ def test_memory(time, min_val, max_val):
         proc = subprocess.Popen('top -b -n 1 | grep stress-ng', stdout=subprocess.PIPE, shell=True, executable="/bin/bash")
         output = str(proc.stdout.read())
 
+        print(output.split(' '))
         for val in output.split(' '):
-            if val.isdigit():
-                x.append(val)
-                y.append(int(val))
-                break
+            pass
+            # if val.isdigit():
+            #     x.append(val)
+            #     y.append(int(val))
+            #     break
 
     return x, y, info
