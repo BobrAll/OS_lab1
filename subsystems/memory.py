@@ -12,23 +12,25 @@ def test_memory(time, min_val, max_val):
 
     command = 'stress-ng --fork-vm --{} {} -t {}'
 
-    for val in range(min_val, max_val, step):
-        command_to_run = command.format(method, val, time)
+    for method_val in range(min_val, max_val, step):
+        command_to_run = command.format(method, method_val, time)
         print('command:', command_to_run)
 
         info['title'] = command_to_run
         info['parameter'] = method
 
         subprocess.Popen(command_to_run, stdout=subprocess.PIPE, shell=True, executable="/bin/bash")
-        proc = subprocess.Popen('top -b -n 1 | grep stress-ng', stdout=subprocess.PIPE, shell=True, executable="/bin/bash")
+        proc = subprocess.Popen('free -m | tail -2 | head -1', stdout=subprocess.PIPE, shell=True,
+                                executable="/bin/bash")
         output = str(proc.stdout.read())
 
-        print(output.split(' '))
+        digit_counter = 0
         for val in output.split(' '):
-            pass
-            # if val.isdigit():
-            #     x.append(val)
-            #     y.append(int(val))
-            #     break
+            if val.isdigit():
+                digit_counter += 1
+                if digit_counter == 6:
+                    x.append(method_val)
+                    y.append(int(val))
+                break
 
     return x, y, info
