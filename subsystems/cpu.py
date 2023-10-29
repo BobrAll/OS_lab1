@@ -1,7 +1,7 @@
 import subprocess
 
 
-def test_cpu(time, min_val, max_val):
+def test_cpu(test_time, min_val, max_val):
     x, y = [], []
     info = {'x_label': 'cpu\'s', 'y_label': 'bogo ops'}
     cpu_methods = ['int32float', 'rand']
@@ -13,7 +13,7 @@ def test_cpu(time, min_val, max_val):
     command = 'stress-ng --cpu {} --cpu-method {} -t {} --metrics | head -5 | tail -1'
 
     for cpu_val in range(min_val, max_val, step):
-        command_to_run = command.format(cpu_val, method, time)
+        command_to_run = command.format(cpu_val, method, test_time)
         print('command:', command_to_run)
 
         info['title'] = command_to_run
