@@ -1,7 +1,7 @@
 import subprocess
+import time
 
-
-def test_memory(time, min_val, max_val):
+def test_memory(test_time, min_val, max_val):
     x, y = [], []
     info = {'x_label': 'memrate value', 'y_label': 'used mem (Mb)'}
     memory_methods = ['memrate']
@@ -13,13 +13,14 @@ def test_memory(time, min_val, max_val):
     command = 'stress-ng --fork-vm --{} {} -t {}'
 
     for method_val in range(min_val, max_val, step):
-        command_to_run = command.format(method, method_val, time)
+        command_to_run = command.format(method, method_val, test_time)
         print('command:', command_to_run)
 
         info['title'] = command_to_run
         info['parameter'] = method
 
         stress_ng = subprocess.Popen(command_to_run, stdout=subprocess.PIPE, shell=True, executable="/bin/bash")
+        time.sleep(test_time/2)
         proc = subprocess.Popen('free -m | tail -2 | head -1', stdout=subprocess.PIPE, shell=True,
                                 executable="/bin/bash")
         output = str(proc.stdout.read())[:-3]
