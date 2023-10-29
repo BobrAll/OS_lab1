@@ -27,6 +27,7 @@ def test_memory(time, min_val, max_val):
         digit_counter = 0
         for val in output.split(' '):
             if val.isdigit():
+                print(val)
                 digit_counter += 1
                 if digit_counter == 6:
                     x.append(method_val)
