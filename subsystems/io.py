@@ -29,8 +29,14 @@ def test_io(test_time, min_val, max_val):
 
         print(output.split(' '))
 
+        float_count = 0
         for val in output.split(' '):
-            if val.isdigit():
+            try:
+                val = float(val)
+                float_count += 1
+            except:
+                continue
+            if float_count == 2:
                 x.append(method_val)
                 y.append(int(val))
                 break
