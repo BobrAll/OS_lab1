@@ -10,10 +10,10 @@ def test_memory(time, min_val, max_val):
     max_steps = 10
     step = max(1, int((max_val - min_val) / max_steps))
 
-    command = 'stress-ng --fork-vm --memrate {} -t {}'
+    command = 'stress-ng --fork-vm --{} {} -t {}'
 
     for val in range(min_val, max_val, step):
-        command_to_run = command.format(val, method, time)
+        command_to_run = command.format(method, val, time)
         print('command:', command_to_run)
 
         info['title'] = command_to_run
