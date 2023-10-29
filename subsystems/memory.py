@@ -32,6 +32,6 @@ def test_memory(time, min_val, max_val):
                 if digit_counter == 6:
                     x.append(method_val)
                     y.append(int(val))
-                break
+                    break
 
     return x, y, info
