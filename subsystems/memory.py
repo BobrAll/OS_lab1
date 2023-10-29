@@ -30,6 +30,7 @@ def test_memory(time, min_val, max_val):
                 print(val)
                 digit_counter += 1
                 if digit_counter == 7:
+                    print("FOUNDED")
                     x.append(method_val)
                     y.append(int(val))
                     break
