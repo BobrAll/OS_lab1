@@ -39,5 +39,5 @@ def test_network(test_time, min_val, max_val):
 
 def get_first_int(full_string):
     for str in full_string.split(' '):
-        if str.isdigit():
+        if str[:-1].isdigit():
             return int(str)
