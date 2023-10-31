@@ -19,7 +19,7 @@ def test_network(test_time, min_val, max_val):
         info['title'] = command_to_run
         info['parameter'] = method
 
-        proc = subprocess.Popen('ip -h -s link show lo | head -4 | tali -1',
+        proc = subprocess.Popen('ip -h -s link show lo | head -4 | tail -1',
                                 stdout=subprocess.PIPE, shell=True, executable="/bin/bash")
         first_mem = get_first_int(str(proc.stdout.read()))
 
