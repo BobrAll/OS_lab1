@@ -3,6 +3,7 @@ from subsystems.memory import test_memory
 from subsystems.io import test_io
 from subsystems.network import test_network
 from subsystems.pipe import test_pipe
+from subsystems.scheduler import test_scheduler
 
 import numpy as np
 import matplotlib.pyplot as plt
@@ -11,7 +12,8 @@ commands = {'cpu': test_cpu,
             'memory': test_memory,
             'io': test_io,
             'network': test_network,
-            'pipe': test_pipe}
+            'pipe': test_pipe,
+            'scheduler': test_scheduler}
 
 if __name__ == '__main__':
     while True:
