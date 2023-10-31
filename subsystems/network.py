@@ -1,7 +1,7 @@
 import subprocess
-import time
 
-def test_memory(test_time, min_val, max_val):
+
+def test_network(test_time, min_val, max_val):
     x, y = [], []
     info = {'x_label': 'value', 'y_label': 'R/W speed (Mb)'}
     network_methods = ['dccp', 'netdev']
@@ -35,6 +35,7 @@ def test_memory(test_time, min_val, max_val):
         y.append((second_mem - first_mem) / test_time)
 
     return x, y, info
+
 
 def get_first_int(full_string):
     for str in full_string.split(' '):
