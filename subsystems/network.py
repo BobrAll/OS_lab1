@@ -26,7 +26,7 @@ def test_network(test_time, min_val, max_val):
         stress_ng = subprocess.Popen(command_to_run, stdout=subprocess.PIPE, shell=True, executable="/bin/bash")
         stress_ng.stdout.read()
 
-        proc = subprocess.Popen('ip -h -s link show lo | head -4 | tali -1',
+        proc = subprocess.Popen('ip -h -s link show lo | head -4 | tail -1',
                                 stdout=subprocess.PIPE, shell=True, executable="/bin/bash")
 
         second_mem = get_first_int(str(proc.stdout.read()))
