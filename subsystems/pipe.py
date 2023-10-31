@@ -24,7 +24,7 @@ def test_pipe(test_time, min_val, max_val):
         proc = subprocess.Popen(command_to_run, stdout=subprocess.PIPE, shell=True, executable="/bin/bash")
 
         output = str(proc.stdout.read())
-        print(output.split(' '))
+
         for val in output.split(' '):
             try:
                 val = float(val[1:])
