@@ -11,7 +11,7 @@ def test_pipe(test_time, min_val, max_val):
     max_steps = 10
     step = max(1, int((max_val - min_val) / max_steps))
 
-    command = 'stress-ng --{} {} -t {} | pv | tail -1'
+    command = 'stress-ng --{} {} -t {} | pv | tail -2'
 
     for method_val in range(min_val, max_val, step):
         command_to_run = command.format(method, method_val, test_time)
