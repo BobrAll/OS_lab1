@@ -1,6 +1,7 @@
 import subprocess
 
 
+MB_IN_GB = 1000
 def test_network(test_time, min_val, max_val):
     x, y = [], []
     info = {'x_label': 'value', 'y_label': 'R/W speed (Mb)'}
@@ -32,7 +33,7 @@ def test_network(test_time, min_val, max_val):
         second_mem = get_first_int(str(proc.stdout.read()))
 
         x.append(method_val)
-        y.append((second_mem - first_mem) / test_time)
+        y.append((second_mem - first_mem) / test_time * MB_IN_GB)
 
     return x, y, info
 
