@@ -27,7 +27,7 @@ def test_pipe(test_time, min_val, max_val):
 
         for val in output.split(' '):
             try:
-                val = float(val)
+                val = float(val[1:])
             except:
                 continue
 
