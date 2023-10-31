@@ -16,7 +16,7 @@ def test_network(test_time, min_val, max_val):
         command_to_run = command.format(method, method_val, test_time)
         print('command:', command_to_run)
 
-        info['title'] = command_to_run
+        info['title'] = command.format(method, 'value', test_time)
         info['parameter'] = method
 
         proc = subprocess.Popen('ip -h -s link show lo | head -4 | tail -1',
